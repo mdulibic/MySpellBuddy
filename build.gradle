@@ -1,8 +1,40 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-    id 'com.android.application' version '7.1.2' apply false
-    id 'com.android.library' version '7.1.2' apply false
-    id 'org.jetbrains.kotlin.android' version '1.5.30' apply false
+buildscript {
+
+    ext {
+        buildId = System.getenv("BUILD_NUMBER")
+        versionPrefix = "1.0."
+
+        if (buildId) {
+            applicationVersionCode = buildId as int
+            applicationVersionName = versionPrefix + buildId
+        } else {
+            applicationVersionCode = 1
+            applicationVersionName = "$versionPrefix$applicationVersionCode"
+        }
+
+        println("Version name: $applicationVersionName")
+        println("Version code: $applicationVersionCode")
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.0.4"
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31'
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.4.1"
+        classpath 'com.google.gms:google-services:4.3.10'
+        //Firebase crashlytics
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+
+        //Dagger hilt
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.38.1'
+    }
 }
 
 task clean(type: Delete) {
