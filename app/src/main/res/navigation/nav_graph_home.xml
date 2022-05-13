@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="hr.fer.mydictator.view.fragment.HomeFragment"
+        android:name="hr.fer.myspellbuddy.view.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
@@ -19,12 +19,10 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="hr.fer.mydictator.SettingsFragment"
-        android:label="fragment_settings"
+        android:name="hr.fer.myspellbuddy.view.fragment.SettingsFragment"
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/QRCodeScannerFragment"
-        android:name="hr.fer.mydictator.QRCodeScannerFragment"
-        android:label="fragment_q_r_code_scanner"
+        android:name="hr.fer.myspellbuddy.view.fragment.QRCodeScannerFragment"
         tools:layout="@layout/fragment_q_r_code_scanner" />
 </navigation>

@@ -8,5 +8,16 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:fontFamily">@font/josefin_sans_medium</item>
+    </style>
+
+    <style name="DefaultToolbar" parent="ThemeOverlay.MaterialComponents.ActionBar">
+        <item name="titleTextColor">@color/white</item>
+        <item name="titleCentered">true</item>
+        <item name="fontFamily">@font/josefin_sans_medium</item>
+        <item name="navigationIconTint">@color/white</item>
+    </style>
+
 
 </resources>

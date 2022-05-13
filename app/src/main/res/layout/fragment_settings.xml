@@ -1,14 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsFragment">
+    android:layout_gravity="center"
+    android:background="@color/cg_blue"
+    tools:context="hr.fer.myspellbuddy.view.fragment.SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        style="@style/DefaultToolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/cg_blue"
+        app:contentInsetStart="0dp"
+        app:layout_collapseMode="pin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/AppTheme.AppBarOverlay" />
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/margin_16" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/margin_16" />
+
+
+    <TextView
+        android:id="@+id/tv_repeat_audio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/josefin_sans_regular"
+        android:text="@string/repeat_audio"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkbox_repeat"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@color/light_coral"
+        app:layout_constraintBottom_toBottomOf="@id/tv_repeat_audio"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintTop_toTopOf="@id/tv_repeat_audio" />
+
+    <TextView
+        android:id="@+id/tv_writing_method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/josefin_sans_regular"
+        android:text="@string/writing_method"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/tv_repeat_audio" />
+
+    <Spinner
+        android:id="@+id/spinner_examination"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:background="@drawable/bg_dropdown"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintStart_toEndOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/tv_writing_method" />
+
+    <TextView
+        android:id="@+id/tv_pause_audio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/josefin_sans_regular"
+        android:text="@string/pause_audio"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/spinner_examination" />
+
+    <com.google.android.material.checkbox.MaterialCheckBox
+        android:id="@+id/checkbox_pause"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@color/light_coral"
+        app:layout_constraintBottom_toBottomOf="@id/tv_pause_audio"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintTop_toTopOf="@id/tv_pause_audio" />
+
+    <ImageView
+        android:id="@+id/iv_settings_bunny"
+        android:layout_width="00dp"
+        android:layout_height="400dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/ic_settings_bunny"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintStart_toEndOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/tv_language" />
+
+    <TextView
+        android:id="@+id/tv_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/josefin_sans_regular"
+        android:text="@string/language"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/tv_pause_audio" />
+
+    <Spinner
+        android:id="@+id/spinner_language"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:background="@drawable/bg_dropdown"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintStart_toEndOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/tv_language" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

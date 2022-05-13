@@ -1,8 +1,19 @@
 <resources>
-    <string name="app_name">MyDictator</string>
-    <string name="my_dictator">My Dictator</string>
+    <string name="app_name">MySpellBuddy</string>
+    <string name="my_spelling_buddy">My SpellBuddy</string>
     <string name="start">Start</string>
-    <string name="settings">Settings</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pause_audio">Pause audio</string>
+    <string name="language">Language</string>
+    <string name="repeat_audio">Repeat audio</string>
+    <string name="settings">Settings</string>
+    <string name="writing_method">Writing method</string>
+    <string-array name="Language">
+        <item>English</item>
+        <item>Croatian</item>
+    </string-array>
+    <string-array name="WritingMethod">
+        <item>Digital ink</item>
+        <item>Hand writing</item>
+    </string-array>
 </resources>
