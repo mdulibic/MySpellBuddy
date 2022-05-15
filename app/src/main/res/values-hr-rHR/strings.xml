@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MySpellBuddy</string>
+    <string name="my_spelling_buddy">My SpellBuddy</string>
+    <string name="start">Kreni</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pause_audio">Pauziraj zvuk</string>
+    <string name="language">Jezik</string>
+    <string name="repeat_audio">Ponovi audio</string>
+    <string name="settings">Postavke</string>
+    <string name="writing_method">Način pisanja</string>
+    <string name="playback">Reprodukcija</string>
+    <string-array name="Languages">
+        <item>Engleski</item>
+        <item>Hrvatski</item>
+    </string-array>
+    <string-array name="WritingMethods">
+        <item>Tablet</item>
+        <item>Papir</item>
+    </string-array>
+</resources>

@@ -37,25 +37,25 @@
 
 
     <TextView
-        android:id="@+id/tv_repeat_audio"
+        android:id="@+id/tv_playback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:fontFamily="@font/josefin_sans_regular"
-        android:text="@string/repeat_audio"
+        android:text="@string/playback"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <com.google.android.material.checkbox.MaterialCheckBox
-        android:id="@+id/checkbox_repeat"
+        android:id="@+id/checkbox_playback"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:checked="false"
         android:background="@color/light_coral"
-        app:layout_constraintBottom_toBottomOf="@id/tv_repeat_audio"
+        app:layout_constraintBottom_toBottomOf="@id/tv_playback"
         app:layout_constraintEnd_toStartOf="@id/guideline_end"
-        app:layout_constraintTop_toTopOf="@id/tv_repeat_audio" />
+        app:layout_constraintTop_toTopOf="@id/tv_playback" />
 
     <TextView
         android:id="@+id/tv_writing_method"
@@ -67,10 +67,10 @@
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/tv_repeat_audio" />
+        app:layout_constraintTop_toBottomOf="@id/tv_playback" />
 
     <Spinner
-        android:id="@+id/spinner_examination"
+        android:id="@+id/spinner_writing_method"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_16"
@@ -90,13 +90,14 @@
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/spinner_examination" />
+        app:layout_constraintTop_toBottomOf="@id/spinner_writing_method" />
 
     <com.google.android.material.checkbox.MaterialCheckBox
         android:id="@+id/checkbox_pause"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:background="@color/light_coral"
+        android:checked="false"
         app:layout_constraintBottom_toBottomOf="@id/tv_pause_audio"
         app:layout_constraintEnd_toStartOf="@id/guideline_end"
         app:layout_constraintTop_toTopOf="@id/tv_pause_audio" />
@@ -105,7 +106,7 @@
         android:id="@+id/iv_settings_bunny"
         android:layout_width="00dp"
         android:layout_height="400dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/ic_settings_bunny"
         app:layout_constraintEnd_toStartOf="@id/guideline_end"
         app:layout_constraintStart_toEndOf="@id/guideline_start"
