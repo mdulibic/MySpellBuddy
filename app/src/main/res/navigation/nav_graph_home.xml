@@ -24,5 +24,17 @@
     <fragment
         android:id="@+id/QRCodeScannerFragment"
         android:name="hr.fer.myspellbuddy.view.fragment.QRCodeScannerFragment"
-        tools:layout="@layout/fragment_q_r_code_scanner" />
+        tools:layout="@layout/fragment_q_r_code_scanner">
+        <action
+            android:id="@+id/action_QRCodeScannerFragment_to_examFragment"
+            app:destination="@id/examFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/examFragment"
+        android:name="hr.fer.myspellbuddy.view.fragment.ExamFragment"
+        tools:layout="@layout/fragment_exam">
+        <argument
+            android:name="barcodeValue"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -59,6 +59,8 @@ ext {
     dagger_hilt = '2.38.1'
     rxKotlin_version = "2.4.0"
     rxAndroid_version = "2.1.1"
+
+    camerax_version = "1.0.1"
 }
 
 dependencies {
@@ -103,5 +105,13 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:30.0.1')
     implementation 'com.google.firebase:firebase-firestore-ktx'
     implementation 'com.google.firebase:firebase-storage-ktx'
+
+    // Barcode scanning API
+    implementation 'com.google.mlkit:barcode-scanning:17.0.0'
+
+    // CameraX library
+    implementation "androidx.camera:camera-camera2:$camerax_version"
+    implementation "androidx.camera:camera-lifecycle:$camerax_version"
+    implementation "androidx.camera:camera-view:1.0.0-alpha28"
 }
 

@@ -18,4 +18,6 @@
         <item>Tablet</item>
         <item>Papir</item>
     </string-array>
+    <string name="scan_your_code_to_start">Skeniraj kod!</string>
+    <string name="check_code">Provjeri</string>
 </resources>

@@ -9,6 +9,8 @@
     <string name="settings">Settings</string>
     <string name="writing_method">Writing method</string>
     <string name="playback">Playback</string>
+    <string name="scan_your_code_to_start">Scan your code!</string>
+    <string name="check_code">Check</string>
     <string-array name="Languages">
         <item>English</item>
         <item>Croatian</item>
