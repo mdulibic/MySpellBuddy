@@ -11,6 +11,8 @@
     <string name="playback">Playback</string>
     <string name="scan_your_code_to_start">Scan your code!</string>
     <string name="check_code">Check</string>
+    <string name="exam_instructions">Listen carefully and write down what you hear!</string>
+    <string name="continue_exam">Continue</string>
     <string-array name="Languages">
         <item>English</item>
         <item>Croatian</item>

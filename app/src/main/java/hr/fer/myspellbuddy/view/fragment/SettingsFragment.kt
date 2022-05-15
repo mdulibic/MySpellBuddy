@@ -19,7 +19,7 @@ import hr.fer.myspellbuddy.viewModel.SettingsViewModel
 @AndroidEntryPoint
 class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
 
-    override fun getToolbar(): Toolbar = binding.toolbar
+    override fun getToolbar(): Toolbar = binding.toolbar.toolbar
 
     private val vm: SettingsViewModel by viewModels()
 

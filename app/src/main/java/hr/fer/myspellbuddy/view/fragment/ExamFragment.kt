@@ -5,17 +5,20 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.viewModels
 import com.google.firebase.storage.FirebaseStorage
 import dagger.hilt.android.AndroidEntryPoint
 import hr.fer.myspellbuddy.R
 import hr.fer.myspellbuddy.databinding.FragmentExamBinding
+import hr.fer.myspellbuddy.util.extensions.observeEvent
 import hr.fer.myspellbuddy.util.extensions.viewBinding
+import hr.fer.myspellbuddy.viewModel.ExamViewModel
 import java.io.IOException
 
 @AndroidEntryPoint
 class ExamFragment : BaseFragment(R.layout.fragment_exam) {
 
-    override fun getToolbar(): Toolbar? = null
+    override fun getToolbar(): Toolbar = binding.toolbar.toolbar
 
     private val binding by viewBinding(FragmentExamBinding::bind)
 
@@ -23,10 +26,23 @@ class ExamFragment : BaseFragment(R.layout.fragment_exam) {
 
     private val barcodeValue by lazy { ExamFragmentArgs.fromBundle(requireArguments()).barcodeValue }
 
+    private val vm: ExamViewModel by viewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setOnClickListener()
-        //prepareAudio()
+        prepareAudio()
+        observeLiveData()
+        vm.getPlayerSetup()
+    }
+
+    private fun observeLiveData() {
+        vm.pauseSetup.observeEvent(viewLifecycleOwner) {
+            binding.btnPause.visibility = if (it) View.VISIBLE else View.GONE
+        }
+        vm.playbackSetup.observeEvent(viewLifecycleOwner) {
+            binding.btnPlayback.visibility = if (it) View.VISIBLE else View.GONE
+        }
     }
 
     private fun setOnClickListener() {
@@ -37,7 +53,7 @@ class ExamFragment : BaseFragment(R.layout.fragment_exam) {
 
     private fun prepareAudio() {
         val storage = FirebaseStorage.getInstance().reference
-        storage.child("$barcodeValue.mp4").downloadUrl
+        storage.child("$barcodeValue.mp3").downloadUrl
             .addOnSuccessListener { uri ->
                 Toast.makeText(requireContext(), "Success!", Toast.LENGTH_LONG).show()
                 try {

@@ -8,18 +8,6 @@
     android:background="@color/cg_blue"
     tools:context="hr.fer.myspellbuddy.view.fragment.SettingsFragment">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        style="@style/DefaultToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/cg_blue"
-        app:contentInsetStart="0dp"
-        app:layout_collapseMode="pin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/AppTheme.AppBarOverlay" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_start"
@@ -35,6 +23,9 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="@dimen/margin_16" />
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
     <TextView
         android:id="@+id/tv_playback"

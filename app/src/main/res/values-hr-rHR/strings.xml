@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MySpellBuddy</string>
-    <string name="my_spelling_buddy">Moj PravopisPrijatelj</string>
+    <string name="my_spelling_buddy"> Moj Diktat Prijo</string>
     <string name="start">Kreni</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pause_audio">Pauziraj zvuk</string>
@@ -20,4 +20,6 @@
     </string-array>
     <string name="scan_your_code_to_start">Skeniraj kod!</string>
     <string name="check_code">Provjeri</string>
+    <string name="exam_instructions">Pažljivo slušaj i zapiši sve ono što čujes!</string>
+    <string name="continue_exam">Nastavi</string>
 </resources>

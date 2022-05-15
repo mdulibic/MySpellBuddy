@@ -23,7 +23,7 @@ import java.util.concurrent.Executors
 @AndroidEntryPoint
 class QRCodeScannerFragment : BaseFragment(R.layout.fragment_q_r_code_scanner) {
 
-    override fun getToolbar(): Toolbar = binding.toolbar
+    override fun getToolbar(): Toolbar = binding.toolbar.toolbar
 
     private val binding by viewBinding(FragmentQRCodeScannerBinding::bind)
 
@@ -41,11 +41,6 @@ class QRCodeScannerFragment : BaseFragment(R.layout.fragment_q_r_code_scanner) {
     private fun onClickListener() {
         binding.btnCheck.setOnClickListener {
             qrCodeAnalyzer.getRawValue()?.let {
-                Toast.makeText(
-                    context,
-                    "Check!",
-                    Toast.LENGTH_SHORT
-                ).show()
                 svm.navigate(
                     QRCodeScannerFragmentDirections.actionQRCodeScannerFragmentToExamFragment(
                         it

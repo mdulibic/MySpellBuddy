@@ -8,19 +8,9 @@
     android:background="@color/cg_blue"
     tools:context="hr.fer.myspellbuddy.view.fragment.QRCodeScannerFragment">
 
-    <com.google.android.material.appbar.MaterialToolbar
+    <include
         android:id="@+id/toolbar"
-        style="@style/DefaultToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/cg_blue"
-        app:contentInsetStart="0dp"
-        app:layout_collapseMode="pin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/AppTheme.AppBarOverlay" />
-
+        layout="@layout/toolbar" />
 
     <androidx.camera.view.PreviewView
         android:id="@+id/preview_view"
