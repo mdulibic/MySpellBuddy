@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "79752077964",
+    "project_id": "my-spell-buddy",
+    "storage_bucket": "my-spell-buddy.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79752077964:android:5ee4c8aa1c7ddd9c0851a9",
+        "android_client_info": {
+          "package_name": "hr.fer.myspellbuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "79752077964-c91up2ao1okqu5cg5bh71i6df38ngdl4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFFbcP-BhYsPaInbUXkSMAXYWW98x1-Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "79752077964-c91up2ao1okqu5cg5bh71i6df38ngdl4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

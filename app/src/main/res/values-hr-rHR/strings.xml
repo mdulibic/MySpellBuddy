@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MySpellBuddy</string>
-    <string name="my_spelling_buddy">My SpellBuddy</string>
+    <string name="my_spelling_buddy">Moj PravopisPrijatelj</string>
     <string name="start">Kreni</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pause_audio">Pauziraj zvuk</string>

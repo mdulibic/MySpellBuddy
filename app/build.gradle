@@ -5,6 +5,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
     id "androidx.navigation.safeargs"
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -98,4 +99,9 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroid_version"
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
 
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:30.0.1')
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+    implementation 'com.google.firebase:firebase-storage-ktx'
 }
+
