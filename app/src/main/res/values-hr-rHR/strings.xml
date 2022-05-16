@@ -22,4 +22,7 @@
     <string name="check_code">Provjeri</string>
     <string name="exam_instructions">Pažljivo slušaj i zapiši sve ono što čujes!</string>
     <string name="continue_exam">Nastavi</string>
+    <string name="upload_photo">Učitaj svoju sliku za provjeru!</string>
+    <string name="upload">Učitaj</string>
+    <string name="check">Provjeri</string>
 </resources>
