@@ -7,11 +7,14 @@
         <entry key="app/src/main/res/drawable/bg_dropdown.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/bg_home.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/ic_homepage_mascote.xml" value="0.174" />
+        <entry key="app/src/main/res/drawable/selector_button_enabled.xml" value="0.1965" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.16510416666666666" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.42291666666666666" />
         <entry key="app/src/main/res/layout/bg_home.xml" value="1.1321428571428571" />
+        <entry key="app/src/main/res/layout/fragment_exam.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19946380615234377" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.2043121337890625" />
+        <entry key="app/src/main/res/layout/fragment_upload_text.xml" value="0.165" />
       </map>
     </option>
   </component>

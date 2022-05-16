@@ -36,5 +36,12 @@
         <argument
             android:name="barcodeValue"
             app:argType="string" />
+        <action
+            android:id="@+id/action_examFragment_to_uploadTextFragment"
+            app:destination="@id/uploadTextFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/uploadTextFragment"
+        android:name="hr.fer.myspellbuddy.view.fragment.UploadTextFragment"
+        tools:layout="@layout/fragment_upload_text" />
 </navigation>

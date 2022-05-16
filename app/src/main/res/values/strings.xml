@@ -13,6 +13,9 @@
     <string name="check_code">Check</string>
     <string name="exam_instructions">Listen carefully and write down what you hear!</string>
     <string name="continue_exam">Continue</string>
+    <string name="upload_photo">Upload your photo for checking!</string>
+    <string name="upload">Upload</string>
+    <string name="check">Check</string>
     <string-array name="Languages">
         <item>English</item>
         <item>Croatian</item>

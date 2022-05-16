@@ -1,6 +1,5 @@
 package hr.fer.myspellbuddy.view.fragment
 
-import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -10,6 +9,7 @@ import com.google.firebase.storage.FirebaseStorage
 import dagger.hilt.android.AndroidEntryPoint
 import hr.fer.myspellbuddy.R
 import hr.fer.myspellbuddy.databinding.FragmentExamBinding
+import hr.fer.myspellbuddy.util.PlayerWrapper
 import hr.fer.myspellbuddy.util.extensions.observeEvent
 import hr.fer.myspellbuddy.util.extensions.viewBinding
 import hr.fer.myspellbuddy.viewModel.ExamViewModel
@@ -21,8 +21,6 @@ class ExamFragment : BaseFragment(R.layout.fragment_exam) {
     override fun getToolbar(): Toolbar = binding.toolbar.toolbar
 
     private val binding by viewBinding(FragmentExamBinding::bind)
-
-    private val mediaPlayer = MediaPlayer()
 
     private val barcodeValue by lazy { ExamFragmentArgs.fromBundle(requireArguments()).barcodeValue }
 
@@ -47,7 +45,17 @@ class ExamFragment : BaseFragment(R.layout.fragment_exam) {
 
     private fun setOnClickListener() {
         binding.btnPlay.setOnClickListener {
-            mediaPlayer.start()
+            binding.btnPlay.visibility = View.INVISIBLE
+            PlayerWrapper.startPlayer()
+        }
+        binding.btnPause.setOnClickListener {
+            PlayerWrapper.pausePlayer()
+        }
+        binding.btnPlayback.setOnClickListener {
+            PlayerWrapper.restartPlayer()
+        }
+        binding.btnContinue.setOnClickListener {
+            svm.navigate(ExamFragmentDirections.actionExamFragmentToUploadTextFragment())
         }
     }
 
@@ -57,14 +65,18 @@ class ExamFragment : BaseFragment(R.layout.fragment_exam) {
             .addOnSuccessListener { uri ->
                 Toast.makeText(requireContext(), "Success!", Toast.LENGTH_LONG).show()
                 try {
-                    mediaPlayer.setDataSource(uri.toString())
-                    mediaPlayer.prepare()
+                    PlayerWrapper.setupPlayer(uri)
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
             }.addOnFailureListener {
                 Toast.makeText(requireContext(), "Failed!", Toast.LENGTH_LONG).show()
             }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        PlayerWrapper.resetPlayer()
     }
 
 

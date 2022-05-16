@@ -92,7 +92,7 @@
         app:layout_constraintTop_toBottomOf="@id/iv_bunny">
 
         <Button
-            android:id="@+id/btn_settings"
+            android:id="@+id/btn_continue"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginStart="16dp"
