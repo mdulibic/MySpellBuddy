@@ -68,5 +68,7 @@ class SettingsViewModel @Inject constructor(
         _languageChange.value = Event(language)
     }
 
-
+    fun getWritingMethod(): String? {
+        return sessionManager.writingMethod
+    }
 }

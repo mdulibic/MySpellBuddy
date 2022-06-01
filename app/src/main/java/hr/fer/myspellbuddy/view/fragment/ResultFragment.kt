@@ -4,6 +4,7 @@ import android.graphics.Rect
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.storage.FirebaseStorage
@@ -13,6 +14,7 @@ import hr.fer.myspellbuddy.databinding.FragmentResultBinding
 import hr.fer.myspellbuddy.model.ResultPair
 import hr.fer.myspellbuddy.util.ResultsAdapter
 import hr.fer.myspellbuddy.util.extensions.viewBinding
+import hr.fer.myspellbuddy.viewModel.SettingsViewModel
 import timber.log.Timber
 import java.io.File
 
@@ -24,6 +26,8 @@ class ResultFragment : BaseFragment(R.layout.fragment_result) {
     private val binding by viewBinding(FragmentResultBinding::bind)
 
     private lateinit var resultsAdapter: ResultsAdapter
+
+    private val vm: SettingsViewModel by viewModels()
 
     private val resultList by lazy { ResultFragmentArgs.fromBundle(requireArguments()).result.toList() }
 
@@ -41,9 +45,12 @@ class ResultFragment : BaseFragment(R.layout.fragment_result) {
     private fun checkResult(solution: List<String>) {
         val mistakes = arrayListOf<ResultPair>()
         for (i in solution.indices) {
-            if (i < resultList.size)
+            if (i < resultList.size) {
                 if (solution[i] != resultList[i])
                     mistakes.add(ResultPair(userInput = resultList[i], solution = solution[i]))
+            } else {
+                mistakes.add(ResultPair(userInput = "Missing input", solution = solution[i]))
+            }
         }
         if (mistakes.isEmpty()) {
             binding.rvResults.visibility = View.GONE
@@ -77,11 +84,22 @@ class ResultFragment : BaseFragment(R.layout.fragment_result) {
                 svm.navigate(ResultFragmentDirections.actionResultFragmentToHomeFragment())
             }
             btnUploadAgain.setOnClickListener {
-                svm.navigate(
-                    ResultFragmentDirections.actionResultFragmentToUploadTextFragment(
-                        barcodeValue
-                    )
-                )
+                when (vm.getWritingMethod()) {
+                    "digital_ink" -> {
+                        svm.navigate(
+                            ResultFragmentDirections.actionResultFragmentToDigitalInkFragment(
+                                barcodeValue
+                            )
+                        )
+                    }
+                    "text_recognition" -> {
+                        svm.navigate(
+                            ResultFragmentDirections.actionResultFragmentToUploadTextFragment(
+                                barcodeValue
+                            )
+                        )
+                    }
+                }
             }
         }
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MySpellBuddy</string>
-    <string name="my_spelling_buddy"> Moj Diktat Prijo</string>
+    <string name="app_name">Moj pravopisni prijatelj</string>
+    <string name="my_spelling_buddy"> Moj pravopisni prijatelj</string>
     <string name="start">Kreni</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pause_audio">Pauziraj zvuk</string>
@@ -9,14 +9,14 @@
     <string name="repeat_audio">Ponovi audio</string>
     <string name="settings">Postavke</string>
     <string name="writing_method">Način pisanja</string>
-    <string name="playback">Reprodukcija</string>
+    <string name="playback">Ponovi reprodukciju</string>
     <string-array name="Languages">
         <item>Engleski</item>
         <item>Hrvatski</item>
     </string-array>
     <string-array name="WritingMethods">
-        <item>Tablet</item>
-        <item>Papir</item>
+        <item>Digitalna tinta</item>
+        <item>Prepoznavanje teksta sa slike</item>
     </string-array>
     <string name="scan_your_code_to_start">Skeniraj kod!</string>
     <string name="check_code">Provjeri</string>
@@ -36,4 +36,5 @@
     <string name="ok">Ok</string>
     <string name="audio_ready">Audiozapis spreman za reprodukciju!</string>
     <string name="audio_fail">Neuspješno skidanje audiozapisa!</string>
+    <string name="clear_text">Izbriši tekst</string>
 </resources>

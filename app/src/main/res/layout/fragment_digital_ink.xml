@@ -4,8 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     android:background="@color/cg_blue"
-    tools:context="hr.fer.myspellbuddy.view.fragment.HomeFragment">
+    tools:context="hr.fer.myspellbuddy.view.fragment.DigitalInkFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_start"
@@ -21,67 +26,60 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="@dimen/margin_16" />
 
-    <ImageView
-        android:id="@+id/iv_bunny"
-        android:layout_width="250dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="@dimen/margin_16"
-        android:src="@drawable/ic_results_mascote"
-        app:layout_constraintStart_toEndOf="@id/guideline_start"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
-        android:id="@+id/tv_all_correct"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_instructions"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:fontFamily="@font/josefin_sans_medium"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/josefin_sans_regular"
         android:gravity="center"
-        android:text="@string/everything_correct_great_job"
+        android:text="@string/exam_instructions"
         android:textColor="@color/white"
-        android:textSize="30sp"
-        android:visibility="gone"
+        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@id/guideline_end"
         app:layout_constraintStart_toEndOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/iv_bunny" />
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
-    <TextView
-        android:id="@+id/tv_mistakes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_16"
-        android:fontFamily="@font/josefin_sans_medium"
-        android:text="@string/mistakes"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:visibility="gone"
+    <ImageView
+        android:id="@+id/btn_play"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_play"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"
         app:layout_constraintStart_toEndOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/iv_bunny" />
+        app:layout_constraintTop_toBottomOf="@id/tv_instructions" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_results"
+    <ImageView
+        android:id="@+id/btn_pause"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_pause"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@id/btn_play"
+        app:layout_constraintStart_toEndOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/tv_instructions"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/btn_playback"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_repeat"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintStart_toEndOf="@id/btn_play"
+        app:layout_constraintTop_toBottomOf="@id/tv_instructions"
+        tools:visibility="visible" />
+
+    <hr.fer.myspellbuddy.view.customView.CustomCanvasView
+        android:id="@+id/canvas"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16"
-        android:layout_marginTop="@dimen/margin_16"
-        android:layout_marginEnd="@dimen/margin_16"
-        android:scrollbars="vertical"
-        android:visibility="gone"
-        app:layoutManager="LinearLayoutManager"
-        app:layout_constraintStart_toEndOf="@id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/tv_mistakes" />
-
-    <TextView
-        android:id="@+id/tv_results"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/josefin_sans_bold"
-        android:text="@string/results"
-        android:textColor="@color/white"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toBottomOf="@id/iv_bunny"
-        app:layout_constraintEnd_toStartOf="@id/guideline_end"
-        app:layout_constraintTop_toTopOf="@id/iv_bunny" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_play" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/menu"
@@ -91,28 +89,31 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/btn_upload_again"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_margin="@dimen/margin_16"
-            android:background="@drawable/bg_button_white"
-            android:text="@string/upload_again"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@id/btn_home"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btn_home"
+            android:id="@+id/btn_clear"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="@dimen/margin_16"
+            android:layout_marginBottom="24dp"
             android:background="@drawable/bg_button_white"
-            android:text="@string/home"
+            android:text="@string/clear_text"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/btn_continue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_continue"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_button_white"
+            android:text="@string/continue_exam"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -120,5 +121,4 @@
             app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

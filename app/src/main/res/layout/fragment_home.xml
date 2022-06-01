@@ -25,9 +25,12 @@
         android:id="@+id/app_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/josefin_sans_bold"
         android:text="@string/my_spelling_buddy"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:lineSpacingMultiplier="1"
         android:textColor="@color/white"
         android:textSize="45sp"
         app:layout_constraintEnd_toStartOf="@id/guideline_end"
@@ -49,22 +52,23 @@
         android:layout_height="0dp"
         android:background="@color/light_coral"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_home_bunny">
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/btn_start"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/bg_button_white"
             android:text="@string/start"
             android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@id/btn_settings"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -72,7 +76,7 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/bg_button_white"
             android:text="@string/settings"
@@ -80,7 +84,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_start" />
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

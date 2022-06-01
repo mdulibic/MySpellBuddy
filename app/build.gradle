@@ -66,6 +66,7 @@ ext {
     text_recognition_version = "18.0.0"
 
     appcompat_version = "1.6.0"
+    digital_ink_version = "18.0.0"
 }
 
 dependencies {
@@ -121,6 +122,9 @@ dependencies {
 
     // Text recognition
     implementation "com.google.android.gms:play-services-mlkit-text-recognition:$text_recognition_version"
+
+    // Digital ink
+    implementation "com.google.mlkit:digital-ink-recognition:$digital_ink_version"
 
     // Per-app language preferences
     implementation "androidx.appcompat:appcompat:$appcompat_version-alpha04"

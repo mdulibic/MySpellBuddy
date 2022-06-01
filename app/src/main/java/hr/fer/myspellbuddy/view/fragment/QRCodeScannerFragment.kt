@@ -11,12 +11,14 @@ import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import hr.fer.myspellbuddy.R
 import hr.fer.myspellbuddy.barcodeScanner.QrCodeAnalyzer
 import hr.fer.myspellbuddy.databinding.FragmentQRCodeScannerBinding
 import hr.fer.myspellbuddy.util.extensions.viewBinding
+import hr.fer.myspellbuddy.viewModel.SettingsViewModel
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -30,6 +32,8 @@ class QRCodeScannerFragment : BaseFragment(R.layout.fragment_q_r_code_scanner) {
     private lateinit var cameraExecutor: ExecutorService
     private lateinit var qrCodeAnalyzer: QrCodeAnalyzer
 
+    private val vm: SettingsViewModel by viewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         cameraExecutor = Executors.newSingleThreadExecutor()
@@ -41,11 +45,22 @@ class QRCodeScannerFragment : BaseFragment(R.layout.fragment_q_r_code_scanner) {
     private fun onClickListener() {
         binding.btnCheck.setOnClickListener {
             qrCodeAnalyzer.getRawValue()?.let {
-                svm.navigate(
-                    QRCodeScannerFragmentDirections.actionQRCodeScannerFragmentToExamFragment(
-                        it
-                    )
-                )
+                when (vm.getWritingMethod()) {
+                    "digital_ink" -> {
+                        svm.navigate(
+                            QRCodeScannerFragmentDirections.actionQRCodeScannerFragmentToDigitalInkFragment(
+                                it
+                            )
+                        )
+                    }
+                    "text_recognition" -> {
+                        svm.navigate(
+                            QRCodeScannerFragmentDirections.actionQRCodeScannerFragmentToExamFragment(
+                                it
+                            )
+                        )
+                    }
+                }
             } ?: run {
                 Toast.makeText(
                     context,
@@ -126,6 +141,7 @@ class QRCodeScannerFragment : BaseFragment(R.layout.fragment_q_r_code_scanner) {
         } else {
             // Permission denied
             MaterialAlertDialogBuilder(requireContext())
+                .setBackground(requireContext().getDrawable(R.drawable.bg_dialog))
                 .setTitle(requireContext().getString(R.string.permission_required))
                 .setMessage(requireContext().getString(R.string.application_camera_access))
                 .setPositiveButton(requireContext().getString(R.string.ok)) { _, _ ->

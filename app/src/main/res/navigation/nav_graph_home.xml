@@ -28,6 +28,13 @@
         <action
             android:id="@+id/action_QRCodeScannerFragment_to_examFragment"
             app:destination="@id/examFragment" />
+        <action
+            android:id="@+id/action_QRCodeScannerFragment_to_digitalInkFragment"
+            app:destination="@id/digitalInkFragment">
+            <argument
+                android:name="barcodeValue"
+                app:argType="string" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/examFragment"
@@ -49,7 +56,7 @@
             app:argType="string" />
         <action
             android:id="@+id/action_uploadTextFragment_to_resultFragment"
-            app:destination="@id/resultFragment"></action>
+            app:destination="@id/resultFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -68,5 +75,24 @@
         <argument
             android:name="result"
             app:argType="string[]" />
+        <action
+            android:id="@+id/action_resultFragment_to_digitalInkFragment"
+            app:destination="@id/digitalInkFragment">
+            <argument
+                android:name="barcodeValue"
+                app:argType="string" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/digitalInkFragment"
+        android:name="hr.fer.myspellbuddy.view.fragment.DigitalInkFragment"
+        tools:layout="@layout/fragment_digital_ink">
+        <action
+            android:id="@+id/action_digitalInkFragment_to_resultFragment"
+            app:destination="@id/resultFragment">
+            <argument
+                android:name="result"
+                app:argType="string[]" />
+        </action>
     </fragment>
 </navigation>

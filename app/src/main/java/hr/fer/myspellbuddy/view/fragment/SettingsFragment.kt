@@ -26,7 +26,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
 
     private val languages = arrayListOf("en", "hr")
 
-    private val writingMethods = arrayListOf("digital", "handwritten")
+    private val writingMethods = arrayListOf("digital_ink", "text_recognition")
 
     private val binding by viewBinding(FragmentSettingsBinding::bind)
 
