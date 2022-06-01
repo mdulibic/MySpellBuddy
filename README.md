@@ -7,7 +7,7 @@ te se upotrebljava za provjeru pravopisa hrvatskog jezika, ali i stranih jezika 
 Svrha ove aplikacije omogućavanje samostalnog vježbanja 
 diktata u različitim jezicima koristeći automatsko prepoznavanje napisanog teksta na jednostavan i pristupačan način.
 
-## Korisnčki zahtjevi
+## Korisnički zahtjevi
 Zvučni i tekstualni zapisi tekstova koji će se koristiti za diktate bit će pohranjeni na platformi Firebase. 
 Učenik svoje vježbanje započinje skeniranje koda koji jednoznačno određuje tekst koji se diktira, nakon čega se u 
 mobilnoj aplikaciji reproducira zvučni zapis teksta. 
