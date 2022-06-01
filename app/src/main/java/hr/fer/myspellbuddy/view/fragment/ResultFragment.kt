@@ -40,8 +40,8 @@ class ResultFragment : BaseFragment(R.layout.fragment_result) {
 
     private fun checkResult(solution: List<String>) {
         val mistakes = arrayListOf<ResultPair>()
-        for (i in 0..solution.size) {
-            if (resultList.size > i)
+        for (i in solution.indices) {
+            if (i < resultList.size)
                 if (solution[i] != resultList[i])
                     mistakes.add(ResultPair(userInput = resultList[i], solution = solution[i]))
         }

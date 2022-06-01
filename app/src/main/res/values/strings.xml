@@ -20,6 +20,7 @@
     <string name="mistakes">Mistakes</string>
     <string name="home">Home</string>
     <string name="upload_again">Upload again</string>
+    <string name="qr_code_unknown">No valid qr code detected! Try again!</string>
     <string name="everything_correct_great_job">Everything correct!\n Great job!</string>
     <string-array name="Languages">
         <item>English</item>
@@ -29,4 +30,9 @@
         <item>Digital ink</item>
         <item>Hand writing</item>
     </string-array>
+    <string name="permission_required">Permission required</string>
+    <string name="application_camera_access">This application needs to access the camera to process barcodes</string>
+    <string name="ok">Ok</string>
+    <string name="audio_ready">Audio ready for playing!</string>
+    <string name="audio_fail">Audio download failed!</string>
 </resources>

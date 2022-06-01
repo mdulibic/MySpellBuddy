@@ -62,14 +62,22 @@ class ExamFragment : BaseFragment(R.layout.fragment_exam) {
         val storage = FirebaseStorage.getInstance().reference
         storage.child("$barcodeValue.mp3").downloadUrl
             .addOnSuccessListener { uri ->
-                Toast.makeText(requireContext(), "Success!", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    requireContext(),
+                    requireContext().getText(R.string.audio_ready),
+                    Toast.LENGTH_LONG
+                ).show()
                 try {
                     PlayerWrapper.setupPlayer(uri)
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
             }.addOnFailureListener {
-                Toast.makeText(requireContext(), "Failed!", Toast.LENGTH_LONG).show()
+                Toast.makeText(
+                    requireContext(),
+                    requireContext().getText(R.string.audio_fail),
+                    Toast.LENGTH_LONG
+                ).show()
             }
     }
 
@@ -77,6 +85,4 @@ class ExamFragment : BaseFragment(R.layout.fragment_exam) {
         super.onPause()
         PlayerWrapper.resetPlayer()
     }
-
-
 }

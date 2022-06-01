@@ -49,7 +49,7 @@ class QRCodeScannerFragment : BaseFragment(R.layout.fragment_q_r_code_scanner) {
             } ?: run {
                 Toast.makeText(
                     context,
-                    "No valid qr code detected! Try again!",
+                    requireContext().getString(R.string.qr_code_unknown),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -126,9 +126,9 @@ class QRCodeScannerFragment : BaseFragment(R.layout.fragment_q_r_code_scanner) {
         } else {
             // Permission denied
             MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Permission required")
-                .setMessage("This application needs to access the camera to process barcodes")
-                .setPositiveButton("Ok") { _, _ ->
+                .setTitle(requireContext().getString(R.string.permission_required))
+                .setMessage(requireContext().getString(R.string.application_camera_access))
+                .setPositiveButton(requireContext().getString(R.string.ok)) { _, _ ->
                     // Keep asking for permission until granted
                     checkCameraPermission()
                 }
@@ -157,6 +157,4 @@ class QRCodeScannerFragment : BaseFragment(R.layout.fragment_q_r_code_scanner) {
         super.onDestroy()
         cameraExecutor.shutdown()
     }
-
-
 }

@@ -22,10 +22,11 @@
             android:name=".view.activity.HomeActivity"
             android:exported="true"
             android:launchMode="singleTask"
-            android:theme="@style/Theme.MyDictator.NoActionBar">
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.MyDictator.NoActionBar"
+            android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

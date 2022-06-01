@@ -30,4 +30,10 @@
     <string name="home">Početna</string>
     <string name="upload_again">Ponovna predaja</string>
     <string name="everything_correct_great_job">Sve točno!\n Bravo, samo tako nastavi!</string>
+    <string name="qr_code_unknown">Nije detektiran validan QR kod. Pokušajte ponovno!</string>
+    <string name="permission_required">Potrebna dozvola</string>
+    <string name="application_camera_access">Za nastavak rada aplikacije potreban je pristup za kamerom</string>
+    <string name="ok">Ok</string>
+    <string name="audio_ready">Audiozapis spreman za reprodukciju!</string>
+    <string name="audio_fail">Neuspješno skidanje audiozapisa!</string>
 </resources>

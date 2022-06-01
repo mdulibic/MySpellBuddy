@@ -29,4 +29,10 @@ object PlayerWrapper {
     fun resetPlayer() {
         mediaPlayer.reset()
     }
+
+    private fun onCompleteListener() {
+        mediaPlayer.setOnCompletionListener {
+            mediaPlayer.reset()
+        }
+    }
 }
