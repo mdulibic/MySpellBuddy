@@ -5,14 +5,15 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
+import androidx.core.os.LocaleListCompat
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import hr.fer.myspellbuddy.R
 import hr.fer.myspellbuddy.databinding.FragmentSettingsBinding
 import hr.fer.myspellbuddy.util.extensions.observeEvent
 import hr.fer.myspellbuddy.util.extensions.viewBinding
-import hr.fer.myspellbuddy.util.other.setAppLocale
 import hr.fer.myspellbuddy.view.activity.HomeActivity
 import hr.fer.myspellbuddy.viewModel.SettingsViewModel
 
@@ -58,7 +59,8 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
             }
         }
         vm.languageChange.observeEvent(viewLifecycleOwner) {
-            setAppLocale(requireContext(), it)
+            val appLocale: LocaleListCompat = LocaleListCompat.forLanguageTags(it)
+            AppCompatDelegate.setApplicationLocales(appLocale)
             val intent = Intent(requireContext(), HomeActivity::class.java)
             startActivity(intent)
         }

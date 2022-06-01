@@ -10,11 +10,10 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.Toolbar
 import dagger.hilt.android.AndroidEntryPoint
 import hr.fer.myspellbuddy.R
-import hr.fer.myspellbuddy.barcodeScanner.TextAnalyzer
+import hr.fer.myspellbuddy.analyzer.TextAnalyzer
 import hr.fer.myspellbuddy.databinding.FragmentUploadTextBinding
 import hr.fer.myspellbuddy.util.extensions.viewBinding
 import timber.log.Timber
-
 
 @AndroidEntryPoint
 class UploadTextFragment : BaseFragment(R.layout.fragment_upload_text) {
@@ -22,6 +21,10 @@ class UploadTextFragment : BaseFragment(R.layout.fragment_upload_text) {
     override fun getToolbar(): Toolbar = binding.toolbar.toolbar
 
     private val binding by viewBinding(FragmentUploadTextBinding::bind)
+
+    private var extractedBitmap: Bitmap? = null
+
+    private val barcodeValue by lazy { UploadTextFragmentArgs.fromBundle(requireArguments()).barcodeValue }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -34,16 +37,25 @@ class UploadTextFragment : BaseFragment(R.layout.fragment_upload_text) {
         }
         binding.btnCheck.setOnClickListener {
             Timber.d("Check image!")
+            extractedBitmap?.let { b ->
+                TextAnalyzer.processImage(requireContext(), b) {
+                    svm.navigate(
+                        UploadTextFragmentDirections.actionUploadTextFragmentToResultFragment(
+                            barcodeValue,
+                            it.toTypedArray()
+                        )
+                    )
+                }
+            }
         }
     }
 
     private var resultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
-                val bitmap = result.data?.extras?.get("data") as Bitmap
-                binding.ivPreview.setImageBitmap(bitmap)
+                extractedBitmap = result.data?.extras?.get("data") as Bitmap
+                binding.ivPreview.setImageBitmap(extractedBitmap)
                 binding.btnCheck.isEnabled = true
-                TextAnalyzer.processImage(requireContext(), bitmap)
             }
         }
 

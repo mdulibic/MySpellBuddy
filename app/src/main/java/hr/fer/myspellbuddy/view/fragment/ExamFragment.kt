@@ -45,7 +45,6 @@ class ExamFragment : BaseFragment(R.layout.fragment_exam) {
 
     private fun setOnClickListener() {
         binding.btnPlay.setOnClickListener {
-            binding.btnPlay.visibility = View.INVISIBLE
             PlayerWrapper.startPlayer()
         }
         binding.btnPause.setOnClickListener {
@@ -55,7 +54,7 @@ class ExamFragment : BaseFragment(R.layout.fragment_exam) {
             PlayerWrapper.restartPlayer()
         }
         binding.btnContinue.setOnClickListener {
-            svm.navigate(ExamFragmentDirections.actionExamFragmentToUploadTextFragment())
+            svm.navigate(ExamFragmentDirections.actionExamFragmentToUploadTextFragment(barcodeValue))
         }
     }
 

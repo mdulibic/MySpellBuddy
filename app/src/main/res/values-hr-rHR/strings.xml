@@ -25,4 +25,9 @@
     <string name="upload_photo">Učitaj svoju sliku za provjeru!</string>
     <string name="upload">Učitaj</string>
     <string name="check">Provjeri</string>
+    <string name="results">Rezultati</string>
+    <string name="mistakes">Greške</string>
+    <string name="home">Početna</string>
+    <string name="upload_again">Ponovna predaja</string>
+    <string name="everything_correct_great_job">Sve točno!\n Bravo, samo tako nastavi!</string>
 </resources>

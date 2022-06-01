@@ -13,6 +13,7 @@ class SessionManager @Inject constructor(@ApplicationContext private val appCont
         private const val WRITING_METHOD = "writing_method"
         private const val LANGUAGE = "language"
         private const val PAUSE_AUDIO = "pause_audio"
+        private const val BARCODE_VALUE = "barcode_value"
     }
 
     private val appPreferences: SharedPreferences by lazy {
@@ -41,5 +42,11 @@ class SessionManager @Inject constructor(@ApplicationContext private val appCont
         get() = appPreferences.getString(LANGUAGE, "hr")
         set(value) {
             appPreferences.edit().putString(LANGUAGE, value).apply()
+        }
+
+    var barcodeValue: String?
+        get() = appPreferences.getString(BARCODE_VALUE, "")
+        set(value) {
+            appPreferences.edit().putString(BARCODE_VALUE, value).apply()
         }
 }

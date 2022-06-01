@@ -16,6 +16,11 @@
     <string name="upload_photo">Upload your photo for checking!</string>
     <string name="upload">Upload</string>
     <string name="check">Check</string>
+    <string name="results">Results</string>
+    <string name="mistakes">Mistakes</string>
+    <string name="home">Home</string>
+    <string name="upload_again">Upload again</string>
+    <string name="everything_correct_great_job">Everything correct!\n Great job!</string>
     <string-array name="Languages">
         <item>English</item>
         <item>Croatian</item>

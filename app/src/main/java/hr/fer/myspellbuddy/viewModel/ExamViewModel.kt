@@ -25,5 +25,4 @@ class ExamViewModel @Inject constructor(
         _pauseSetup.value = Event(sessionManager.pauseAudio)
         _playbackSetup.value = Event(sessionManager.playback)
     }
-
 }

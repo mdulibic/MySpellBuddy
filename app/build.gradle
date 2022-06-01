@@ -64,6 +64,8 @@ ext {
 
     barcode_scanner_version = "17.0.2"
     text_recognition_version = "18.0.0"
+
+    appcompat_version = "1.6.0"
 }
 
 dependencies {
@@ -119,6 +121,12 @@ dependencies {
 
     // Text recognition
     implementation "com.google.android.gms:play-services-mlkit-text-recognition:$text_recognition_version"
+
+    // Per-app language preferences
+    implementation "androidx.appcompat:appcompat:$appcompat_version-alpha04"
+    // For loading and tinting drawables on older versions of the platform
+    implementation "androidx.appcompat:appcompat-resources:$appcompat_version-alpha04"
+
 
 
 }
