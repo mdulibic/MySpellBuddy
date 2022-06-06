@@ -36,4 +36,5 @@
     <string name="audio_ready">Audio ready for playing!</string>
     <string name="audio_fail">Audio download failed!</string>
     <string name="clear_text">Clear text</string>
+    <string name="scan">Scan</string>
 </resources>
