@@ -2,6 +2,7 @@ package hr.fer.myspellbuddy.barcodeScanner
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.widget.Toast
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
@@ -30,17 +31,16 @@ class QrCodeAnalyzer(private val context: Context) : ImageAnalysis.Analyzer {
                 .addOnSuccessListener { barcodes ->
                     for (barcode in barcodes) {
                         rawValue = barcode.rawValue
-                        /*
-                        Toast.makeText(
-                            context,
-                            "Value: " + barcode.rawValue,
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
-                         */
                     }
                 }
-                .addOnFailureListener { }
+                .addOnFailureListener {
+                    Toast.makeText(
+                        context,
+                        "An exception occurred: $it",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
                 .addOnCompleteListener {
                     image.close()
                 }

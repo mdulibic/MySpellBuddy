@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MySpellBuddy</string>
+    <string name="app_name">My Spelling Buddy</string>
     <string name="my_spelling_buddy">My SpellBuddy</string>
     <string name="start">Start</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -36,4 +36,5 @@
     <string name="audio_ready">Audio ready for playing!</string>
     <string name="audio_fail">Audio download failed!</string>
     <string name="clear_text">Clear text</string>
+    <string name="submit">Submit</string>
 </resources>

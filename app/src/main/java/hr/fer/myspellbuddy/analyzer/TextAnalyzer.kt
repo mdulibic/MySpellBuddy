@@ -32,7 +32,7 @@ object TextAnalyzer {
             .addOnFailureListener { e ->
                 Toast.makeText(
                     context,
-                    "Failed to recognize text! Try to upload again!",
+                    "An exception occurred: $e!",
                     Toast.LENGTH_SHORT
                 )
                     .show()

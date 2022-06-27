@@ -24,7 +24,7 @@
     <string name="continue_exam">Nastavi</string>
     <string name="upload_photo">Učitaj svoju sliku za provjeru!</string>
     <string name="upload">Učitaj</string>
-    <string name="check">Provjeri</string>
+    <string name="check">Predaj</string>
     <string name="results">Rezultati</string>
     <string name="mistakes">Greške</string>
     <string name="home">Početna</string>
@@ -37,4 +37,5 @@
     <string name="audio_ready">Audiozapis spreman za reprodukciju!</string>
     <string name="audio_fail">Neuspješno skidanje audiozapisa!</string>
     <string name="clear_text">Izbriši tekst</string>
+    <string name="submit">Predaj</string>
 </resources>
