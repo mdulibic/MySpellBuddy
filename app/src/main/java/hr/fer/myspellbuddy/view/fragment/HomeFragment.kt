@@ -97,7 +97,24 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 R.layout.item_spinner,
                 resources.getStringArray(R.array.WritingMethods)
             )
+            spinnerWritingMethod.onItemSelectedListener =
+                object : AdapterView.OnItemSelectedListener {
+                    override fun onNothingSelected(p0: AdapterView<*>?) {
+                    }
+
+                    override fun onItemSelected(
+                        p0: AdapterView<*>?,
+                        p1: View?,
+                        position: Int,
+                        p3: Long
+                    ) {
+                        val method = writingMethods[position]
+                        settingsVm.setupWritingMethod(method)
+                    }
+                }
         }
+
+
     }
 
 }

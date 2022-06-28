@@ -26,8 +26,8 @@
         <item>Croatian</item>
     </string-array>
     <string-array name="WritingMethods">
-        <item>Digital ink</item>
-        <item>Text recognition</item>
+        <item>Device</item>
+        <item>Paper</item>
     </string-array>
     <string name="permission_required">Permission required</string>
     <string name="application_camera_access">This application needs to access the camera to process barcodes</string>
@@ -37,4 +37,6 @@
     <string name="clear_text">Clear text</string>
     <string name="scan">Scan</string>
     <string name="language">Language:</string>
+    <string name="your_result">Your result</string>
+    <string name="diktat_test">Ovo je diktat proba.</string>
 </resources>
