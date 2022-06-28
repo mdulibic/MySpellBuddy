@@ -30,6 +30,10 @@ class SettingsViewModel @Inject constructor(
     val playbackSetupChange: LiveData<Event<Boolean>>
         get() = _playbackSetupChange
 
+    private val _speedSetupChange = MutableLiveData<Event<Boolean>>()
+    val speedSetupChange: LiveData<Event<Boolean>>
+        get() = _speedSetupChange
+
     private val _writingMethodChange = MutableLiveData<Event<String>>()
     val writingMethodChange: LiveData<Event<String>>
         get() = _writingMethodChange
@@ -56,6 +60,10 @@ class SettingsViewModel @Inject constructor(
     fun setupPlayback(isEnabled: Boolean) {
         sessionManager.playback = isEnabled
         _playbackSetupChange.value = Event(isEnabled)
+    }
+
+    fun setupSpeed(isEnabled: Boolean) {
+        sessionManager.speed = isEnabled
     }
 
     fun setupWritingMethod(method: String) {

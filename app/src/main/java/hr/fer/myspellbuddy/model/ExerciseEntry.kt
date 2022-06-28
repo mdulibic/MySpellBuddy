@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ExerciseEntry(
-    val soundId: String,
+    val audioId: String,
     val textId: String,
     val pause: Boolean,
     val repeat: Boolean,

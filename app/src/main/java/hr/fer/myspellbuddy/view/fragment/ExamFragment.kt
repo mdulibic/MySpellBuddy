@@ -60,7 +60,7 @@ class ExamFragment : BaseFragment(R.layout.fragment_exam) {
 
     private fun prepareAudio() {
         val storage = FirebaseStorage.getInstance().reference
-        storage.child("$barcodeValue.mp3").downloadUrl
+        storage.child("audio/$barcodeValue.mp4").downloadUrl
             .addOnSuccessListener { uri ->
                 Toast.makeText(
                     requireContext(),

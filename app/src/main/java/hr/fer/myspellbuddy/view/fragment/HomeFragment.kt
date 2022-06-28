@@ -92,7 +92,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 R.layout.item_spinner,
                 resources.getStringArray(R.array.Languages)
             )
-
             spinnerWritingMethod.adapter = ArrayAdapter(
                 requireContext(),
                 R.layout.item_spinner,

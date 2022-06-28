@@ -13,6 +13,7 @@ class SessionManager @Inject constructor(@ApplicationContext private val appCont
         private const val WRITING_METHOD = "writing_method"
         private const val LANGUAGE = "language"
         private const val PAUSE_AUDIO = "pause_audio"
+        private const val SPEED_AUDIO = "SPEED_audio"
         private const val BARCODE_VALUE = "barcode_value"
     }
 
@@ -30,6 +31,12 @@ class SessionManager @Inject constructor(@ApplicationContext private val appCont
         get() = appPreferences.getBoolean(PAUSE_AUDIO, false)
         set(value) {
             appPreferences.edit().putBoolean(PAUSE_AUDIO, value).apply()
+        }
+
+    var speed: Boolean
+        get() = appPreferences.getBoolean(SPEED_AUDIO, false)
+        set(value) {
+            appPreferences.edit().putBoolean(SPEED_AUDIO, value).apply()
         }
 
     var writingMethod: String?

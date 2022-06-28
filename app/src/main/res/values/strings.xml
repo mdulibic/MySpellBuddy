@@ -4,7 +4,6 @@
     <string name="start">Start</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pause_audio">Pause audio</string>
-    <string name="language">Language</string>
     <string name="repeat_audio">Repeat audio</string>
     <string name="settings">Settings</string>
     <string name="writing_method">Writing method</string>
@@ -37,4 +36,5 @@
     <string name="audio_fail">Audio download failed!</string>
     <string name="clear_text">Clear text</string>
     <string name="scan">Scan</string>
+    <string name="language">Language:</string>
 </resources>

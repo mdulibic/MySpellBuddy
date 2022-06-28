@@ -5,7 +5,6 @@
     <string name="start">Kreni</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="pause_audio">Pauziraj zvuk</string>
-    <string name="language">Jezik</string>
     <string name="repeat_audio">Ponovi audio</string>
     <string name="settings">Postavke</string>
     <string name="writing_method">Način pisanja</string>
@@ -38,4 +37,5 @@
     <string name="audio_fail">Neuspješno skidanje audiozapisa!</string>
     <string name="clear_text">Izbriši tekst</string>
     <string name="scan">Skeniraj</string>
+    <string name="language">Jezik:</string>
 </resources>
