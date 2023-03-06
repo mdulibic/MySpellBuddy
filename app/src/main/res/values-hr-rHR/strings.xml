@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Moj pravopisni prijatelj</string>
+    <string name="my_spelling_buddy"> Moj pravopisni prijatelj</string>
+    <string name="start">Kreni</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pause_audio">Pauziraj zvuk</string>
+    <string name="repeat_audio">Ponovi audio</string>
+    <string name="settings">Postavke</string>
+    <string name="writing_method">Pišem na:</string>
+    <string name="playback">Ponovi reprodukciju</string>
+    <string-array name="Languages">
+        <item>Engleski</item>
+        <item>Hrvatski</item>
+    </string-array>
+    <string-array name="WritingMethods">
+        <item>mobilnom uređaju</item>
+        <item>papiru</item>
+    </string-array>
+    <string name="scan_your_code_to_start">Skeniraj kod!</string>
+    <string name="check_code">Provjeri</string>
+    <string name="exam_instructions">Pažljivo slušaj i zapiši sve ono što čujes!</string>
+    <string name="continue_exam">Nastavi</string>
+    <string name="upload_photo">Učitaj svoju sliku za provjeru!</string>
+    <string name="upload">Učitaj</string>
+    <string name="check">Predaj</string>
+    <string name="results">Rezultati</string>
+    <string name="mistakes">Greške</string>
+    <string name="home">Početna</string>
+    <string name="upload_again">Ponovna predaja</string>
+    <string name="everything_correct_great_job">Sve točno!\n Bravo, samo tako nastavi!</string>
+    <string name="qr_code_unknown">Nije detektiran validan QR kod. Pokušajte ponovno!</string>
+    <string name="permission_required">Potrebna dozvola</string>
+    <string name="application_camera_access">Za nastavak rada aplikacije potreban je pristup za kamerom</string>
+    <string name="ok">Ok</string>
+    <string name="audio_ready">Audiozapis spreman za reprodukciju!</string>
+    <string name="audio_fail">Neuspješno skidanje audiozapisa!</string>
+    <string name="clear_text">Izbriši tekst</string>
+    <string name="submit">Predaj</string>
+    <string name="scan">Skeniraj</string>
+    <string name="language">Jezik:</string>
+    <string name="your_result">Tvoj rezultat</string>
+</resources>
