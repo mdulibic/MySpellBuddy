@@ -2,7 +2,6 @@ package hr.fer.myspellbuddy.barcodeScanner
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.widget.Toast
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
 import com.google.mlkit.vision.barcode.BarcodeScannerOptions
@@ -10,7 +9,12 @@ import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.barcode.common.Barcode
 import com.google.mlkit.vision.common.InputImage
 
-class QrCodeAnalyzer(private val context: Context) : ImageAnalysis.Analyzer {
+interface OnInputListener {
+    fun onInput(value: String)
+}
+
+class QrCodeAnalyzer(private val context: Context, private val inputListener: OnInputListener) :
+    ImageAnalysis.Analyzer {
 
     private var rawValue: String? = null
 
@@ -31,15 +35,17 @@ class QrCodeAnalyzer(private val context: Context) : ImageAnalysis.Analyzer {
                 .addOnSuccessListener { barcodes ->
                     for (barcode in barcodes) {
                         rawValue = barcode.rawValue
+                        rawValue?.let { inputListener.onInput(it) }
+                        /*
+                        Timber.d("Raw value: $rawValue")
+                        Toast.makeText(
+                            context,
+                            "Value: $rawValue",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                         */
                     }
-                }
-                .addOnFailureListener {
-                    Toast.makeText(
-                        context,
-                        "An exception occurred: $it",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
                 }
                 .addOnCompleteListener {
                     image.close()
@@ -47,6 +53,4 @@ class QrCodeAnalyzer(private val context: Context) : ImageAnalysis.Analyzer {
         }
         image.close()
     }
-
-    fun getRawValue(): String? = rawValue
 }

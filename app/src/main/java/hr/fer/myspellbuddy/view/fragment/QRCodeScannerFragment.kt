@@ -3,7 +3,6 @@ package hr.fer.myspellbuddy.view.fragment
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
@@ -15,10 +14,13 @@ import androidx.fragment.app.viewModels
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import hr.fer.myspellbuddy.R
+import hr.fer.myspellbuddy.barcodeScanner.OnInputListener
 import hr.fer.myspellbuddy.barcodeScanner.QrCodeAnalyzer
 import hr.fer.myspellbuddy.databinding.FragmentQRCodeScannerBinding
+import hr.fer.myspellbuddy.model.ExerciseEntry
 import hr.fer.myspellbuddy.util.extensions.viewBinding
 import hr.fer.myspellbuddy.viewModel.SettingsViewModel
+import timber.log.Timber
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -34,41 +36,58 @@ class QRCodeScannerFragment : BaseFragment(R.layout.fragment_q_r_code_scanner) {
 
     private val vm: SettingsViewModel by viewModels()
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        cameraExecutor = Executors.newSingleThreadExecutor()
-        qrCodeAnalyzer = QrCodeAnalyzer(requireContext())
-        checkIfCameraPermissionIsGranted()
-        onClickListener()
-    }
-
-    private fun onClickListener() {
-        binding.btnCheck.setOnClickListener {
-            qrCodeAnalyzer.getRawValue()?.let {
+    private val qrInputListener = object : OnInputListener {
+        override fun onInput(value: String) {
+            try {
+                val entry = parseEntrySet(value)
+                vm.setupPause(entry.pause)
+                vm.setupPlayback(entry.repeat)
+                vm.setupSpeed(entry.speed)
                 when (vm.getWritingMethod()) {
                     "digital_ink" -> {
                         svm.navigate(
                             QRCodeScannerFragmentDirections.actionQRCodeScannerFragmentToDigitalInkFragment(
-                                it
+                                entry.audioId
                             )
                         )
                     }
                     "text_recognition" -> {
                         svm.navigate(
                             QRCodeScannerFragmentDirections.actionQRCodeScannerFragmentToExamFragment(
-                                it
+                                entry.audioId
                             )
                         )
                     }
                 }
-            } ?: run {
-                Toast.makeText(
-                    context,
-                    requireContext().getString(R.string.qr_code_unknown),
-                    Toast.LENGTH_SHORT
-                ).show()
+            } catch (ex: Exception) {
+                Timber.d("onInput $ex")
             }
         }
+
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        cameraExecutor = Executors.newSingleThreadExecutor()
+        qrCodeAnalyzer = QrCodeAnalyzer(requireContext(), qrInputListener)
+        checkIfCameraPermissionIsGranted()
+    }
+
+    private fun parseEntrySet(entry: String): ExerciseEntry {
+        val entryList = entry.split(",")
+        val textId = entryList[0].split(":")[1]
+        val audioId = entryList[1].split(":")[1]
+        val pause = entryList[2].split(":")[1].toBoolean()
+        val repeat = entryList[3].split(":")[1].toBoolean()
+        val speed = entryList[4].split(":")[1].toBoolean()
+        return ExerciseEntry(
+            textId = textId,
+            audioId = audioId,
+            pause = pause,
+            repeat = repeat,
+            speed = speed
+        )
     }
 
     /**

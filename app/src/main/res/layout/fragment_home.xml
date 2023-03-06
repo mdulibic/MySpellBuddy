@@ -21,11 +21,21 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="@dimen/margin_16" />
 
+    <Spinner
+        android:id="@+id/spinner_language"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:background="@drawable/bg_dropdown"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/app_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/josefin_sans_bold"
         android:text="@string/my_spelling_buddy"
         android:gravity="center"
@@ -35,16 +45,44 @@
         android:textSize="45sp"
         app:layout_constraintEnd_toStartOf="@id/guideline_end"
         app:layout_constraintStart_toEndOf="@id/guideline_start"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/spinner_language" />
 
-    <ImageView
-        android:id="@+id/iv_home_bunny"
-        android:layout_width="00dp"
-        android:layout_height="400dp"
-        android:src="@drawable/ic_homepage_mascote"
+    <TextView
+        android:id="@+id/tv_writing_method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/josefin_sans_regular"
+        android:gravity="center"
+        android:text="@string/writing_method"
+        android:textColor="@color/white"
+        android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@id/guideline_end"
         app:layout_constraintStart_toEndOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@id/app_title" />
+
+    <Spinner
+        android:id="@+id/spinner_writing_method"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_16"
+        android:background="@drawable/bg_dropdown"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintStart_toEndOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/tv_writing_method" />
+
+    <ImageView
+        android:id="@+id/iv_home_bunny"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_homepage_mascote"
+        app:layout_constraintBottom_toTopOf="@id/menu"
+        app:layout_constraintEnd_toStartOf="@id/guideline_end"
+        app:layout_constraintStart_toEndOf="@id/guideline_start"
+        app:layout_constraintTop_toBottomOf="@id/spinner_writing_method" />
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/menu"
@@ -60,27 +98,13 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             android:layout_marginBottom="24dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginTop="24dp"
             android:background="@drawable/bg_button_white"
-            android:text="@string/start"
+            android:text="@string/scan"
             android:textAlignment="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/btn_settings"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btn_settings"
-            android:layout_width="0dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginBottom="24dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/bg_button_white"
-            android:text="@string/settings"
-            android:textAlignment="center"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
